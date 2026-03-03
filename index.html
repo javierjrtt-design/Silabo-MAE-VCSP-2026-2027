@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sílabo Matemáticas: Análisis y Enfoques NM 2026-2027</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -13,331 +14,485 @@
             --vcsp-gold-light: #e2cf9f;
             --vcsp-cream: #fdfaf2;
             --white: #ffffff;
-            --can: #009b77; --rec: #7f3ef5; --fml: #f37021; --gdi: #e91e63;
-            --mae-t1: #8b5cf6; --mae-t2: #ec4899; --mae-t3: #0ea5e9; 
-            --mae-t4: #84cc16; --mae-t5: #ef4444;
+            --mae-t1: #8b5cf6; --mae-t2: #ec4899; --mae-t3: #0ea5e9; --mae-t4: #84cc16; --mae-t5: #ef4444;
+            --minedu-c1: #2e7d32; --minedu-c2: #1565c0; --minedu-c3: #e65100; --minedu-c4: #546e7a;
         }
-        body { font-family: 'Inter', system-ui, sans-serif; background-color: var(--vcsp-cream); padding: 20px; color: #333; line-height: 1.5; }
-        .year-content { max-width: 1200px; margin: 0 auto 50px auto; background: var(--white); border-radius: 20px; padding: 40px; border: 1px solid var(--vcsp-gold-light); box-shadow: 0 10px 30px rgba(197, 160, 89, 0.1); }
-        .top-banner { text-align: center; font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 15px; color: var(--vcsp-gold); text-transform: uppercase; border-bottom: 2px solid var(--vcsp-gold-light); display: inline-block; width: 100%; padding-bottom: 5px; }
-        .year-header { color: var(--white); padding: 35px; border-radius: 15px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 5px solid var(--vcsp-gold); }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { 
+            font-family: 'Inter', system-ui, sans-serif; 
+            background-color: var(--vcsp-cream); 
+            padding: 20px; color: #333; 
+            line-height: 1.15; 
+        }
+
+        p { margin: 0; }
+
+        .container { max-width: 1150px; margin: 0 auto; }
+
+        .year-content { 
+            background: var(--white); border-radius: 20px; padding: 40px; margin-bottom: 50px;
+            border: 1px solid var(--vcsp-gold-light); box-shadow: 0 10px 30px rgba(197, 160, 89, 0.1); 
+        }
+
+        .top-banner { 
+            text-align: center; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; 
+            margin-bottom: 15px; color: var(--vcsp-gold); text-transform: uppercase; 
+            border-bottom: 2px solid var(--vcsp-gold-light); padding-bottom: 5px; 
+        }
+
+        .year-header { 
+            color: var(--white); padding: 30px; border-radius: 15px; margin-bottom: 30px; 
+            display: flex; justify-content: space-between; align-items: center; 
+            border-bottom: 5px solid var(--vcsp-gold); 
+        }
+
         .header-y1 { background: linear-gradient(135deg, var(--vcsp-navy) 0%, #283593 100%); }
         .header-y2 { background: linear-gradient(135deg, #0d1440 0%, var(--vcsp-navy) 100%); }
-        .trimestre-title { background: #f1f5f9; border-left: 6px solid var(--vcsp-gold); padding: 15px 20px; border-radius: 0 10px 10px 0; margin: 40px 0 20px 0; font-weight: 800; font-size: 1.15rem; color: var(--vcsp-navy); text-transform: uppercase; }
-        .unidad-card { display: grid; grid-template-columns: 85px 1fr 120px; background: var(--white); border: 1px solid #eee; border-radius: 12px; margin-bottom: 30px; overflow: hidden; }
-        .unit-sidebar { display: flex; align-items: center; justify-content: center; border-right: 2px solid var(--vcsp-cream); background: #fcfaf5; }
-        .unit-sidebar span { writing-mode: vertical-rl; transform: rotate(180deg); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--vcsp-gold); }
-        .unit-body { padding: 25px; }
-        .unit-body h3 { margin: 0 0 5px 0; color: var(--vcsp-navy); font-size: 1.4rem; font-weight: 800; }
-        .unit-objective { font-style: italic; color: #666; font-size: 0.9rem; margin-bottom: 15px; border-left: 3px solid var(--vcsp-gold-light); padding-left: 10px; }
-        .unit-time { background: #f8f9fa; display: flex; flex-direction: column; align-items: center; justify-content: center; border-left: 1px solid #eee; color: var(--vcsp-navy); }
-        .time-val { font-size: 1.8rem; font-weight: 800; line-height: 1; }
-        .time-lbl { font-size: 0.65rem; text-transform: uppercase; font-weight: 700; color: var(--vcsp-gold); }
-        .tags-container { margin-bottom: 15px; display: flex; gap: 8px; flex-wrap: wrap; }
-        .badge { padding: 4px 12px; border-radius: 6px; font-size: 0.7rem; font-weight: 800; color: white; text-transform: uppercase; }
-        .unit-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-        .unit-list li { font-size: 0.85rem; color: #444; border-bottom: 1px solid #f9f9f9; padding: 2px 0; }
-        .unit-list li b { color: var(--vcsp-gold); margin-right: 5px; }
-        footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--vcsp-gold-light); color: var(--vcsp-gold); font-size: 0.85rem; font-weight: 600; }
+
+        .trimestre-title { 
+            background: #f1f5f9; border-left: 6px solid var(--vcsp-gold); 
+            padding: 12px 20px; border-radius: 0 10px 10px 0; margin: 35px 0 20px 0; 
+            font-weight: 800; font-size: 1.1rem; color: var(--vcsp-navy); text-transform: uppercase; 
+        }
+
+        .unidad-card { 
+            display: grid; grid-template-columns: 80px 1fr 100px; 
+            background: var(--white); border: 1px solid #eee; border-radius: 12px; 
+            margin-bottom: 20px; overflow: hidden; transition: transform 0.2s;
+        }
+
+        .unidad-card:hover { transform: translateX(5px); border-color: var(--vcsp-gold-light); }
+
+        .unit-sidebar { 
+            display: flex; align-items: center; justify-content: center; 
+            background: #fcfaf5; border-right: 1px solid #eee;
+        }
+
+        .unit-sidebar span { 
+            writing-mode: vertical-rl; transform: rotate(180deg); 
+            font-weight: 800; font-size: 0.7rem; text-transform: uppercase; 
+            letter-spacing: 1.5px; color: var(--vcsp-gold); 
+        }
+
+        .unit-body { padding: 20px; }
+        .unit-body h3 { margin-bottom: 8px; color: var(--vcsp-navy); font-size: 1.25rem; font-weight: 800; }
+
+        .match-container { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+        .badge { padding: 3px 10px; border-radius: 4px; font-size: 0.65rem; font-weight: 800; color: white; text-transform: uppercase; }
+        .badge-minedu { background: #333; border: 1px solid rgba(255,255,255,0.2); }
+
+        .unit-objective { 
+            font-style: italic; color: #555; font-size: 0.85rem; margin-bottom: 15px; 
+            border-left: 3px solid var(--vcsp-gold-light); padding-left: 10px; 
+        }
+
+        .unit-list { 
+            list-style: none; display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 5px; 
+        }
+
+        .unit-list li { font-size: 0.85rem; color: #444; display: flex; align-items: baseline; }
+        .unit-list li b { color: var(--vcsp-gold); margin-right: 6px; font-size: 0.75rem; width: 28px; display: inline-block; }
+
+        .unit-time { 
+            background: #f8f9fa; display: flex; flex-direction: column; 
+            align-items: center; justify-content: center; border-left: 1px solid #eee; color: var(--vcsp-navy); 
+        }
+
+        .time-val { font-size: 1.6rem; font-weight: 800; }
+        .time-lbl { font-size: 0.6rem; text-transform: uppercase; font-weight: 700; color: var(--vcsp-gold); }
+
+        footer { 
+            text-align: center; margin-top: 30px; padding: 20px; border-top: 1px solid var(--vcsp-gold-light); 
+            color: var(--vcsp-gold); font-size: 0.8rem; font-weight: 600; 
+        }
+
+        @media (max-width: 768px) {
+            .unidad-card { grid-template-columns: 50px 1fr; }
+            .unit-time { grid-column: span 2; flex-direction: row; gap: 10px; padding: 10px; }
+            .unit-list { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
+<div class="container">
+
+    <!-- AÑO 1: 2026 -->
     <div class="year-content">
         <div class="top-banner">MAE Sílabo bianual | Colegios VCSP | 2026 - 2027</div>
         <div class="year-header header-y1">
-            <div><h1 style="margin:0">AÑO 1° (2026)</h1><p style="margin:5px 0 0 0; font-style: italic">Matemáticas: Análisis y Enfoques NM</p></div>
-            <div style="text-align: right"><strong>Prof. Javier Trigoso</strong></div>
+            <div>
+                <h1 style="font-size: 2rem;">AÑO 1 (2026)</h1>
+                <p style="font-style: italic; opacity: 0.9;">Matemáticas: Análisis y Enfoques NM</p>
+            </div>
+            <div style="text-align: right">
+                <strong>Prof. Javier Trigoso</strong><br>
+                <span style="font-size: 0.8rem;">Departamento de Matemáticas</span>
+            </div>
         </div>
 
-        <div class="trimestre-title">TRIMESTRE 1: Fundamentos y Álgebra</div>
+        <div class="trimestre-title">Trimestre 1: Fundamentos y Álgebra</div>
 
+        <!-- Unidad 0 -->
         <div class="unidad-card">
             <div class="unit-sidebar"><span>Unidad 0</span></div>
             <div class="unit-body">
-                <h3>Fundamentos y fluidez matemática para el PD</h3>
-                <div class="unit-objective">Objetivo: Desarrollar una base sólida de fluidez operativa y razonamiento lógico que permita al estudiante abordar con confianza los temas de NM.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--can);">CAN</span><span class="badge" style="background-color: var(--rec);">REC</span></div>
+                <h3>Fundamentos y fluidez para el PD</h3>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t1);">T1: Números y Álgebra</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c1);">C1: Cantidad</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c2);">C2: Regularidad</span>
+                </div>
+                <div class="unit-objective">Objetivo: Desarrollar una base sólida de fluidez operativa y razonamiento lógico para abordar con confianza los temas de NM.</div>
                 <ul class="unit-list">
-                    <li><b>0.1</b> Aritmética y jerarquía</li>
+                    <li><b>0.1</b> Aritmética y jerarquía de operaciones</li>
                     <li><b>0.2</b> Cifras significativas y redondeo</li>
-                    <li><b>0.3</b> Leyes de exponentes</li>
-                    <li><b>0.4</b> Factorización algebraica</li>
-                    <li><b>0.5</b> Sistemas de ecuaciones 2x2</li>
-                    <li><b>0.6</b> Concepto de función</li>
-                    <li><b>0.7</b> Modelado lineal y cuadrático</li>
-                    <li><b>0.8</b> Razones trigonométricas</li>
+                    <li><b>0.3</b> Leyes de exponentes y radicales</li>
+                    <li><b>0.4</b> Factorización algebraica avanzada</li>
+                    <li><b>0.5</b> Sistemas de ecuaciones lineales 2x2</li>
+                    <li><b>0.6</b> Concepto de función y notación</li>
+                    <li><b>0.7</b> Modelado lineal y cuadrático básico</li>
+                    <li><b>0.8</b> Razones trigonométricas fundamentales</li>
                     <li><b>0.9</b> Geometría plana y del espacio</li>
-                    <li><b>0.10</b> Probabilidad y estadística básica</li>
+                    <li><b>0.10</b> Probabilidad y estadística descriptiva básica</li>
                 </ul>
             </div>
             <div class="unit-time"><span class="time-val">10</span><span class="time-lbl">Horas</span></div>
         </div>
 
+        <!-- Unidad 1 -->
         <div class="unidad-card">
             <div class="unit-sidebar"><span>Unidad 1</span></div>
             <div class="unit-body">
                 <h3>Sucesiones, Series y Binomio</h3>
-                <div class="unit-objective">Objetivo: Identificar patrones numéricos y aplicar el teorema del binomio para expansiones algebraicas.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--mae-t1);">TEMA 1</span></div>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t1);">T1: Números y Álgebra</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c1);">C1: Cantidad</span>
+                </div>
+                <div class="unit-objective">Objetivo: Analizar patrones numéricos y modelar situaciones financieras de crecimiento y depreciación.</div>
                 <ul class="unit-list">
-                    <li><b>1.1</b> Notación científica</li>
-                    <li><b>1.2</b> Progresiones Aritméticas</li>
-                    <li><b>1.3</b> Progresiones Geométricas</li>
-                    <li><b>1.4</b> Series finitas e infinitas</li>
-                    <li><b>1.5</b> Matemática Financiera</li>
-                    <li><b>1.6</b> Teorema del Binomio</li>
+                    <li><b>1.1</b> Progresiones aritméticas: Término n y suma</li>
+                    <li><b>1.2</b> Progresiones geométricas: Término n y suma</li>
+                    <li><b>1.3</b> Series geométricas infinitas convergentes</li>
+                    <li><b>1.4</b> Aplicaciones financieras e interés compuesto</li>
+                    <li><b>1.5</b> Teorema del binomio de Newton</li>
                 </ul>
             </div>
             <div class="unit-time"><span class="time-val">12</span><span class="time-lbl">Horas</span></div>
         </div>
 
+        <!-- Unidad 2 -->
         <div class="unidad-card">
             <div class="unit-sidebar"><span>Unidad 2</span></div>
             <div class="unit-body">
-                <h3>Funciones: Propiedades y Conceptos</h3>
-                <div class="unit-objective">Objetivo: Determinar dominio, rango e interacciones entre funciones (composición e inversa).</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--mae-t2);">TEMA 2</span></div>
+                <h3>Propiedades de las Funciones</h3>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t2);">T2: Funciones</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c2);">C2: Regularidad</span>
+                </div>
+                <div class="unit-objective">Objetivo: Determinar dominios, recorridos e interacciones complejas entre funciones mediante composición e inversas.</div>
                 <ul class="unit-list">
-                    <li><b>2.1</b> Definición, dominio y recorrido</li>
-                    <li><b>2.2</b> Análisis gráfico con GDC</li>
-                    <li><b>2.3</b> Composición de funciones</li>
-                    <li><b>2.4</b> Función Inversa y simetría</li>
-                    <li><b>2.5</b> Números complejos (base)</li>
+                    <li><b>2.1</b> Definición de función, dominio y recorrido</li>
+                    <li><b>2.2</b> Análisis de gráficos con tecnología GDC</li>
+                    <li><b>2.3</b> Funciones compuestas e inversas</li>
+                    <li><b>2.4</b> Simetría y transformaciones de funciones</li>
                 </ul>
             </div>
-            <div class="unit-time"><span class="time-val">8</span><span class="time-lbl">Horas</span></div>
+            <div class="unit-time"><span class="time-val">10</span><span class="time-lbl">Horas</span></div>
         </div>
 
+        <!-- Unidad 3 -->
         <div class="unidad-card">
             <div class="unit-sidebar"><span>Unidad 3</span></div>
             <div class="unit-body">
-                <h3>Modelado Lineal y Cuadrático</h3>
-                <div class="unit-objective">Objetivo: Aplicar funciones de primer y segundo grado para modelar situaciones de cambio.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--mae-t2);">TEMA 2</span></div>
+                <h3>Análisis Polinómico</h3>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t2);">T2: Funciones</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c2);">C2: Cambio</span>
+                </div>
+                <div class="unit-objective">Objetivo: Utilizar funciones de primer y segundo grado para resolver problemas de optimización y trayectoria.</div>
                 <ul class="unit-list">
-                    <li><b>3.1</b> Formas de la recta</li>
-                    <li><b>3.2</b> Ecuaciones cuadráticas</li>
-                    <li><b>3.3</b> Vértice y eje de simetría</li>
-                    <li><b>3.4</b> Discriminante y soluciones</li>
-                    <li><b>3.5</b> Transformaciones básicas</li>
+                    <li><b>3.1</b> Formas de la recta e intersecciones</li>
+                    <li><b>3.2</b> La parábola: Vértice y eje de simetría</li>
+                    <li><b>3.3</b> Discriminante y naturaleza de raíces</li>
+                    <li><b>3.4</b> Problemas de máximos y mínimos cuadráticos</li>
                 </ul>
             </div>
             <div class="unit-time"><span class="time-val">8</span><span class="time-lbl">Horas</span></div>
         </div>
 
-        <div class="trimestre-title">TRIMESTRE 2: Geometría y Trascendentes</div>
+        <div class="trimestre-title">Trimestre 2: Geometría y Trascendentes</div>
 
+        <!-- Unidad 4 -->
         <div class="unidad-card">
             <div class="unit-sidebar"><span>Unidad 4</span></div>
             <div class="unit-body">
                 <h3>Funciones Racionales</h3>
-                <div class="unit-objective">Objetivo: Analizar asíntotas y comportamientos en los límites de funciones fraccionarias.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--mae-t2);">TEMA 2</span></div>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t2);">T2: Funciones</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c2);">C2: Cambio</span>
+                </div>
+                <div class="unit-objective">Objetivo: Analizar asíntotas y el comportamiento en los límites de funciones fraccionarias.</div>
                 <ul class="unit-list">
-                    <li><b>4.1</b> Gráficos de f(x)=ax+b/cx+d</li>
-                    <li><b>4.2</b> Asíntotas horizontales/verticales</li>
-                    <li><b>4.3</b> Aplicaciones de modelado</li>
+                    <li><b>4.1</b> Gráficos de funciones \( f(x) = \frac{ax+b}{cx+d} \)</li>
+                    <li><b>4.2</b> Asíntotas horizontales y verticales</li>
+                    <li><b>4.3</b> Modelado de situaciones de proporcionalidad</li>
                 </ul>
             </div>
             <div class="unit-time"><span class="time-val">7</span><span class="time-lbl">Horas</span></div>
         </div>
 
+        <!-- Unidad 5 -->
         <div class="unidad-card">
             <div class="unit-sidebar"><span>Unidad 5</span></div>
             <div class="unit-body">
-                <h3>Exponenciales y Logarítmicas</h3>
-                <div class="unit-objective">Objetivo: Dominar las leyes de logaritmos y el número e para resolver ecuaciones de crecimiento.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--mae-t1);">TEMA 1</span></div>
+                <h3>Logaritmos y Exponenciales</h3>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t1);">T1: Álgebra</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c1);">C1: Cantidad</span>
+                </div>
+                <div class="unit-objective">Objetivo: Dominar las leyes de logaritmos y el número \( e \) para resolver ecuaciones de crecimiento.</div>
                 <ul class="unit-list">
-                    <li><b>5.1</b> Leyes de exponentes</li>
-                    <li><b>5.2</b> Definición de logaritmo</li>
-                    <li><b>5.3</b> Logaritmo natural y base 10</li>
-                    <li><b>5.4</b> Ecuaciones exponenciales</li>
+                    <li><b>5.1</b> Definición de logaritmo y cambio de base</li>
+                    <li><b>5.2</b> Propiedades y leyes de logaritmos</li>
+                    <li><b>5.3</b> Ecuaciones exponenciales complejas</li>
+                    <li><b>5.4</b> Modelado de crecimiento y decaimiento</li>
                 </ul>
             </div>
             <div class="unit-time"><span class="time-val">10</span><span class="time-lbl">Horas</span></div>
         </div>
 
+        <!-- Unidad 6 -->
         <div class="unidad-card">
             <div class="unit-sidebar"><span>Unidad 6</span></div>
             <div class="unit-body">
-                <h3>Geometría y Trigonometría 2D/3D</h3>
-                <div class="unit-objective">Objetivo: Resolver problemas espaciales mediante teoremas del seno y coseno.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--mae-t3);">TEMA 3</span></div>
+                <h3>Trigonometría en 2D y 3D</h3>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t3);">T3: Geometría</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c3);">C3: Forma</span>
+                </div>
+                <div class="unit-objective">Objetivo: Resolver problemas espaciales mediante teoremas del seno, coseno y geometría de coordenadas.</div>
                 <ul class="unit-list">
-                    <li><b>6.1</b> Distancias y puntos en 3D</li>
-                    <li><b>6.2</b> Volumen de conos y esferas</li>
-                    <li><b>6.3</b> Regla del Seno y Coseno</li>
-                    <li><b>6.4</b> Área del triángulo trigonométrica</li>
-                    <li><b>6.5</b> Ángulos de elevación y dep.</li>
-                </ul>
-            </div>
-            <div class="unit-time"><span class="time-val">13</span><span class="time-lbl">Horas</span></div>
-        </div>
-
-        <div class="unidad-card">
-            <div class="unit-sidebar"><span>Unidad 7</span></div>
-            <div class="unit-body">
-                <h3>Funciones Circulares</h3>
-                <div class="unit-objective">Objetivo: Modelar periodicidad mediante funciones seno y coseno.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--mae-t3);">TEMA 3</span></div>
-                <ul class="unit-list">
-                    <li><b>7.1</b> Radianes y sectores</li>
-                    <li><b>7.2</b> Identidades Pitagóricas</li>
-                    <li><b>7.3</b> Gráficos trigonométricos</li>
-                    <li><b>7.4</b> Amplitud, periodo y fase</li>
-                </ul>
-            </div>
-            <div class="unit-time"><span class="time-val">10</span><span class="time-lbl">Horas</span></div>
-        </div>
-
-        <div class="trimestre-title">TRIMESTRE 3: Estadística y Datos</div>
-
-        <div class="unidad-card">
-            <div class="unit-sidebar"><span>Unidad 8</span></div>
-            <div class="unit-body">
-                <h3>Estadística Descriptiva</h3>
-                <div class="unit-objective">Objetivo: Resumir y visualizar datos para la toma de decisiones informada.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--mae-t4);">TEMA 4</span></div>
-                <ul class="unit-list">
-                    <li><b>8.1</b> Muestreo y tipos de datos</li>
-                    <li><b>8.2</b> Media, moda y mediana</li>
-                    <li><b>8.3</b> Desviación estándar y varianza</li>
-                    <li><b>8.4</b> Cuartiles y Boxplots</li>
-                </ul>
-            </div>
-            <div class="unit-time"><span class="time-val">10</span><span class="time-lbl">Horas</span></div>
-        </div>
-
-        <div class="unidad-card">
-            <div class="unit-sidebar"><span>Unidad 9</span></div>
-            <div class="unit-body">
-                <h3>Regresión e Intro a IA</h3>
-                <div class="unit-objective">Objetivo: Determinar la fuerza de correlación entre variables cuantitativas.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--mae-t4);">TEMA 4</span></div>
-                <ul class="unit-list">
-                    <li><b>9.1</b> Coeficiente de Pearson (r)</li>
-                    <li><b>9.2</b> Recta de regresión y-sobre-x</li>
-                    <li><b>9.3</b> Interpolación y extrapolación</li>
-                    <li><b>IA</b> Taller de Exploración Inicial</li>
-                </ul>
-            </div>
-            <div class="unit-time"><span class="time-val">10</span><span class="time-lbl">Horas</span></div>
-        </div>
-
-        <footer>Elaborado por Javier Trigoso • 2026 • Departamento de Matemáticas • IB VC SP</footer>
-    </div>
-
-    <div class="year-content">
-        <div class="top-banner">MAE Sílabo bianual | Colegios VCSP | 2026 - 2027</div>
-        <div class="year-header header-y2">
-            <div><h1 style="margin:0">AÑO 2° (2027)</h1><p style="margin:5px 0 0 0; font-style: italic">Análisis Avanzado y Cálculo</p></div>
-            <div style="text-align: right"><strong>Upper School</strong></div>
-        </div>
-
-        <div class="trimestre-title">TRIMESTRE 1: Probabilidad y Derivada</div>
-
-        <div class="unidad-card">
-            <div class="unit-sidebar"><span>Unidad 10</span></div>
-            <div class="unit-body">
-                <h3>Teoría de Probabilidades</h3>
-                <div class="unit-objective">Objetivo: Resolver situaciones de incertidumbre mediante leyes de probabilidad condicional e independiente.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--mae-t4);">TEMA 4</span></div>
-                <ul class="unit-list">
-                    <li><b>10.1</b> Diagramas de Venn y Árbol</li>
-                    <li><b>10.2</b> Sucesos mutuamente excluyentes</li>
-                    <li><b>10.3</b> Probabilidad condicional</li>
-                </ul>
-            </div>
-            <div class="unit-time"><span class="time-val">10</span><span class="time-lbl">Horas</span></div>
-        </div>
-
-        <div class="unidad-card">
-            <div class="unit-sidebar"><span>Unidad 11</span></div>
-            <div class="unit-body">
-                <h3>Distribuciones Binomial y Normal</h3>
-                <div class="unit-objective">Objetivo: Aplicar modelos teóricos de probabilidad para predecir resultados en poblaciones grandes.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--mae-t4);">TEMA 4</span></div>
-                <ul class="unit-list">
-                    <li><b>11.1</b> Variables aleatorias discretas</li>
-                    <li><b>11.2</b> Valor esperado E(X)</li>
-                    <li><b>11.3</b> Distribución Binomial</li>
-                    <li><b>11.4</b> Distribución Normal y tipificación</li>
-                </ul>
-            </div>
-            <div class="unit-time"><span class="time-val">14</span><span class="time-lbl">Horas</span></div>
-        </div>
-
-        <div class="unidad-card">
-            <div class="unit-sidebar"><span>Unidad 12</span></div>
-            <div class="unit-body">
-                <h3>Cálculo Diferencial</h3>
-                <div class="unit-objective">Objetivo: Comprender la derivada como el límite de la pendiente de una curva.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--mae-t5);">TEMA 5</span></div>
-                <ul class="unit-list">
-                    <li><b>12.1</b> Límites y continuidad</li>
-                    <li><b>12.2</b> Derivadas de potencias</li>
-                    <li><b>12.3</b> Regla de la cadena y producto</li>
-                    <li><b>12.4</b> Tangentes y normales</li>
-                </ul>
-            </div>
-            <div class="unit-time"><span class="time-val">15</span><span class="time-lbl">Horas</span></div>
-        </div>
-
-        <div class="trimestre-title">TRIMESTRE 2: Optimización e Integración</div>
-
-        <div class="unidad-card">
-            <div class="unit-sidebar"><span>Unidad 13</span></div>
-            <div class="unit-body">
-                <h3>Análisis de Funciones</h3>
-                <div class="unit-objective">Objetivo: Utilizar derivadas para encontrar puntos críticos y optimizar procesos.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--mae-t5);">TEMA 5</span></div>
-                <ul class="unit-list">
-                    <li><b>13.1</b> Máximos y mínimos locales</li>
-                    <li><b>13.2</b> Concavidad e Inflexión</li>
-                    <li><b>13.3</b> Problemas de optimización</li>
-                    <li><b>13.4</b> Cinemática Diferencial</li>
+                    <li><b>6.1</b> Teoremas del seno y del coseno</li>
+                    <li><b>6.2</b> Área del triángulo y aplicaciones</li>
+                    <li><b>6.3</b> Geometría de coordenadas en el espacio 3D</li>
+                    <li><b>6.4</b> Ángulos de elevación, depresión y rumbos</li>
                 </ul>
             </div>
             <div class="unit-time"><span class="time-val">12</span><span class="time-lbl">Horas</span></div>
         </div>
 
+        <!-- Unidad 7 -->
         <div class="unidad-card">
-            <div class="unit-sidebar"><span>Unidad 14</span></div>
+            <div class="unit-sidebar"><span>Unidad 7</span></div>
             <div class="unit-body">
-                <h3>Cálculo Integral</h3>
-                <div class="unit-objective">Objetivo: Calcular áreas bajo curvas y entender la integración como la inversa de la derivación.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--mae-t5);">TEMA 5</span></div>
+                <h3>Funciones Circulares</h3>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t3);">T3: Trigonometría</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c3);">C3: Movimiento</span>
+                </div>
+                <div class="unit-objective">Objetivo: Modelar fenómenos periódicos mediante funciones circulares y sus identidades.</div>
                 <ul class="unit-list">
-                    <li><b>14.1</b> Integrales indefinidas (+C)</li>
-                    <li><b>14.2</b> Integración por sustitución</li>
-                    <li><b>14.3</b> Áreas definidas y TFC</li>
-                    <li><b>14.4</b> Cinemática Integral</li>
+                    <li><b>7.1</b> Radianes, arco y sector circular</li>
+                    <li><b>7.2</b> Identidades pitagóricas y de ángulo doble</li>
+                    <li><b>7.3</b> Gráficos trigonométricos y sus parámetros</li>
+                    <li><b>7.4</b> Modelado de mareas y ondas periódicas</li>
                 </ul>
             </div>
-            <div class="unit-time"><span class="time-val">15</span><span class="time-lbl">Horas</span></div>
+            <div class="unit-time"><span class="time-val">12</span><span class="time-lbl">Horas</span></div>
         </div>
 
-        <div class="trimestre-title">TRIMESTRE 3: Revisión Final</div>
+        <div class="trimestre-title">Trimestre 3: Estadística y Bivariados</div>
 
+        <!-- Unidad 8 -->
         <div class="unidad-card">
-            <div class="unit-sidebar"><span>Unidad 15</span></div>
+            <div class="unit-sidebar"><span>Unidad 8</span></div>
             <div class="unit-body">
-                <h3>Consolidación e IA</h3>
-                <div class="unit-objective">Objetivo: Integrar todas las áreas para los exámenes oficiales del IB y finalizar la exploración matemática.</div>
-                <div class="tags-container"><span class="badge" style="background-color: var(--vcsp-navy);">PRUEBAS IB</span></div>
+                <h3>Estadística Univariada</h3>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t4);">T4: Estadística</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c4);">C4: Datos</span>
+                </div>
+                <div class="unit-objective">Objetivo: Resumir y visualizar datos para la toma de decisiones informada y crítica.</div>
                 <ul class="unit-list">
-                    <li><b>Repaso</b> Prueba 1 y Prueba 2</li>
-                    <li><b>IA</b> Entrega final Exploración</li>
-                    <li><b>Mock</b> Simulacros cronometrados</li>
+                    <li><b>8.1</b> Población, muestra y técnicas de muestreo</li>
+                    <li><b>8.2</b> Medidas de centralización y dispersión</li>
+                    <li><b>8.3</b> Diagramas de caja, bigotes y tallo-hojas</li>
+                    <li><b>8.4</b> Análisis de datos atípicos (outliers)</li>
+                </ul>
+            </div>
+            <div class="unit-time"><span class="time-val">10</span><span class="time-lbl">Horas</span></div>
+        </div>
+
+        <!-- Unidad 9 -->
+        <div class="unidad-card">
+            <div class="unit-sidebar"><span>Unidad 9</span></div>
+            <div class="unit-body">
+                <h3>Correlación y Regresión</h3>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t4);">T4: Estadística</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c4);">C4: Incertidumbre</span>
+                </div>
+                <div class="unit-objective">Objetivo: Determinar la fuerza de correlación entre variables y predecir tendencias.</div>
+                <ul class="unit-list">
+                    <li><b>9.1</b> Diagramas de dispersión y correlación</li>
+                    <li><b>9.2</b> Coeficiente de correlación de Pearson \( r \)</li>
+                    <li><b>9.3</b> Rectas de regresión por mínimos cuadrados</li>
+                    <li><b>9.4</b> Introducción a la exploración matemática (IA)</li>
+                </ul>
+            </div>
+            <div class="unit-time"><span class="time-val">10</span><span class="time-lbl">Horas</span></div>
+        </div>
+
+        <footer>Elaborado por Javier Trigoso • 2026 • Departamento de Matemáticas • IB VC SP</footer>
+    </div>
+
+    <!-- AÑO 2: 2027 -->
+    <div class="year-content">
+        <div class="top-banner">MAE Sílabo bianual | Colegios VCSP | 2026 - 2027</div>
+        <div class="year-header header-y2">
+            <div>
+                <h1 style="font-size: 2rem;">AÑO 2 (2027)</h1>
+                <p style="font-style: italic; opacity: 0.9;">Matemáticas: Análisis y Enfoques NM</p>
+            </div>
+            <div style="text-align: right">
+                <strong>Prof. Javier Trigoso</strong><br>
+                <span style="font-size: 0.8rem;">Departamento de Matemáticas</span>
+            </div>
+        </div>
+
+        <div class="trimestre-title">Trimestre 1: Probabilidad y Derivada</div>
+
+        <!-- Unidad 10 -->
+        <div class="unidad-card">
+            <div class="unit-sidebar"><span>Unidad 10</span></div>
+            <div class="unit-body">
+                <h3>Teoría de Probabilidades</h3>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t4);">T4: Probabilidad</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c4);">C4: Gestión de Datos</span>
+                </div>
+                <div class="unit-objective">Objetivo: Resolver situaciones complejas de azar mediante leyes de probabilidad formal.</div>
+                <ul class="unit-list">
+                    <li><b>10.1</b> Diagramas de Venn, tablas y árboles</li>
+                    <li><b>10.2</b> Sucesos independientes y dependientes</li>
+                    <li><b>10.3</b> Probabilidad condicional y de Bayes</li>
+                    <li><b>10.4</b> Análisis combinatorio y permutaciones</li>
+                </ul>
+            </div>
+            <div class="unit-time"><span class="time-val">10</span><span class="time-lbl">Horas</span></div>
+        </div>
+
+        <!-- Unidad 11 -->
+        <div class="unidad-card">
+            <div class="unit-sidebar"><span>Unidad 11</span></div>
+            <div class="unit-body">
+                <h3>Distribuciones Teóricas</h3>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t4);">T4: Probabilidad</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c4);">C4: Incertidumbre</span>
+                </div>
+                <div class="unit-objective">Objetivo: Aplicar modelos teóricos para predecir resultados en poblaciones estadísticas.</div>
+                <ul class="unit-list">
+                    <li><b>11.1</b> Esperanza matemática y valor esperado</li>
+                    <li><b>11.2</b> La distribución binomial y sus parámetros</li>
+                    <li><b>11.3</b> Distribución normal y curva de Gauss</li>
+                    <li><b>11.4</b> Tipificación y puntuaciones estándar Z</li>
                 </ul>
             </div>
             <div class="unit-time"><span class="time-val">14</span><span class="time-lbl">Horas</span></div>
         </div>
 
+        <!-- Unidad 12 -->
+        <div class="unidad-card">
+            <div class="unit-sidebar"><span>Unidad 12</span></div>
+            <div class="unit-body">
+                <h3>Cálculo Diferencial</h3>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t5);">T5: Cálculo</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c2);">C2: Cambio</span>
+                </div>
+                <div class="unit-objective">Objetivo: Comprender la derivada como el límite de la razón de cambio instantánea.</div>
+                <ul class="unit-list">
+                    <li><b>12.1</b> Límites, continuidad e infinitos</li>
+                    <li><b>12.2</b> Derivadas de potencias y funciones simples</li>
+                    <li><b>12.3</b> Regla de la cadena, producto y cociente</li>
+                    <li><b>12.4</b> Ecuaciones de la recta tangente y normal</li>
+                </ul>
+            </div>
+            <div class="unit-time"><span class="time-val">15</span><span class="time-lbl">Horas</span></div>
+        </div>
+
+        <div class="trimestre-title">Trimestre 2: Optimización e Integración</div>
+
+        <!-- Unidad 13 -->
+        <div class="unidad-card">
+            <div class="unit-sidebar"><span>Unidad 13</span></div>
+            <div class="unit-body">
+                <h3>Análisis Gráfico y Optimización</h3>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t5);">T5: Cálculo</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c2);">C2: Cambio</span>
+                </div>
+                <div class="unit-objective">Objetivo: Utilizar derivadas para encontrar puntos críticos y optimizar procesos industriales y físicos.</div>
+                <ul class="unit-list">
+                    <li><b>13.1</b> Máximos y mínimos locales y globales</li>
+                    <li><b>13.2</b> Concavidad, puntos de inflexión y segunda derivada</li>
+                    <li><b>13.3</b> Problemas de optimización de área y volumen</li>
+                    <li><b>13.4</b> Cinemática: Posición, velocidad y aceleración</li>
+                </ul>
+            </div>
+            <div class="unit-time"><span class="time-val">12</span><span class="time-lbl">Horas</span></div>
+        </div>
+
+        <!-- Unidad 14 -->
+        <div class="unidad-card">
+            <div class="unit-sidebar"><span>Unidad 14</span></div>
+            <div class="unit-body">
+                <h3>Cálculo Integral</h3>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--mae-t5);">T5: Cálculo</span>
+                    <span class="badge badge-minedu" style="background-color: var(--minedu-c2);">C2: Cambio</span>
+                </div>
+                <div class="unit-objective">Objetivo: Entender la integración como el proceso inverso a la derivación y su aplicación en áreas acumuladas.</div>
+                <ul class="unit-list">
+                    <li><b>14.1</b> Integrales indefinidas y constante \( C \)</li>
+                    <li><b>14.2</b> Integración por sustitución simple</li>
+                    <li><b>14.3</b> Áreas bajo una curva y entre dos curvas</li>
+                    <li><b>14.4</b> Aplicaciones en cinemática integral</li>
+                </ul>
+            </div>
+            <div class="unit-time"><span class="time-val">15</span><span class="time-lbl">Horas</span></div>
+        </div>
+
+        <div class="trimestre-title">Trimestre 3: Consolidación Final</div>
+
+        <!-- Unidad 15 -->
+        <div class="unidad-card">
+            <div class="unit-sidebar"><span>Unidad 15</span></div>
+            <div class="unit-body">
+                <h3>Revisión y Evaluación</h3>
+                <div class="match-container">
+                    <span class="badge" style="background-color: var(--vcsp-navy);">Prueba 1 y 2</span>
+                    <span class="badge badge-minedu" style="background-color: #000;">Exploración IB</span>
+                </div>
+                <div class="unit-objective">Objetivo: Integrar todas las áreas para el éxito en la evaluación externa e interna del IB.</div>
+                <ul class="unit-list">
+                    <li><b>Repaso</b> Estrategias para problemas complejos</li>
+                    <li><b>Mock</b> Simulacros cronometrados de examen</li>
+                    <li><b>IA</b> Presentación final de la Exploración Matemática</li>
+                </ul>
+            </div>
+            <div class="unit-time"><span class="time-val">15</span><span class="time-lbl">Horas</span></div>
+        </div>
+
         <footer>Elaborado por Javier Trigoso • 2026 • Departamento de Matemáticas • IB VC SP</footer>
     </div>
+
+</div>
 
 </body>
 </html>
